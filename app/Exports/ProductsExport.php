@@ -1,11 +1,12 @@
 <?php
 
+namespace App\Exports;
+
 use App\Models\Product;
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\WithMapping;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
- 
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithMapping;
+
 class ProductsExport implements FromCollection, WithHeadings, WithMapping
 {
     public function __construct(private array $productIDs) {}
@@ -29,8 +30,12 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping
             '$' . number_format($product->price, 2)
         ];
     }
- 
-    public function collection(): Collection
+
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function collection()
     {
         return Product::with('categories', 'country')->find($this->productIDs);
     }

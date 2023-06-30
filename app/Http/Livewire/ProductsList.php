@@ -8,10 +8,9 @@ use App\Models\Product;
 use Illuminate\Http\Response;
 use Livewire\Component;
 use Livewire\WithPagination;
-
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use App\Exports\ProductsExport;
 use Maatwebsite\Excel\Facades\Excel;
-use ProductsExport;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ProductsList extends Component
 {

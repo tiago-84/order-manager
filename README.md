@@ -1,1 +1,1 @@
-sistema de gerenciamento de pedidos 
+Sistema de gerenciamento de pedidos em Liveware
